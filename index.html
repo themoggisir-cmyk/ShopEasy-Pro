@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#010403" />
+  <title>Secure Console</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+  <main class="screen" id="screen">
+    <div class="scanlines"></div>
+    <section class="terminal-card" aria-live="polite">
+      <div class="terminal-topbar"><span></span><span></span><span></span><b>ROOT://SECURE-NODE</b></div>
+      <div class="status-grid">
+        <div><small>SESSION</small><strong id="sessionCode">----</strong></div>
+        <div><small>NODE</small><strong id="nodeCode">AUTO</strong></div>
+        <div><small>STATUS</small><strong id="topStatus">BOOTING</strong></div>
+      </div>
+
+      <div class="console-grid" id="consoleGrid">
+        <div class="terminal main-terminal" id="terminal"></div>
+        <div class="mini-panels">
+          <section><header>PROCESS MONITOR</header><div class="mini-log" id="sideLog"></div></section>
+          <section><header>PACKET TRACE</header><div class="mini-log packet-log" id="packetLog"></div></section>
+        </div>
+      </div>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-meta"><span id="progressLabel">Booting modules...</span><span id="progressValue">0%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <div class="system-message hidden" id="systemMessage">
+        <div class="hack-symbol">⚠</div>
+        <p class="eyebrow danger-text">SYSTEM OVERRIDE COMPLETE</p>
+        <h1 class="hacked-title"><span>⚠</span> HACKED <span>⚠</span></h1>
+        <p class="prank-reveal hidden" id="reveal2">PRANK</p>
+        <div class="message-box hidden" id="reveal3">
+          <div class="creator-footer hidden" id="creatorFooter">
+            <div class="creator-line"></div>
+            <p>Designed &amp; Developed by</p>
+            <strong>Mohit Kumar</strong>
+            <div class="creator-line"></div>
+          </div>
+          <div class="message-row">
+            <input id="visitorMessage" type="text" maxlength="140" placeholder="Type a message..." autocomplete="off" aria-label="Message" />
+            <button id="sendMessageBtn" type="button">Send</button>
+          </div>
+          <p class="message-status" id="messageStatus"></p>
+        </div>
+        <button class="hidden replay-button" id="replayBtn" type="button">Run Again</button>
+      </div>
+    </section>
+    <button class="exit-btn" id="exitBtn" type="button" aria-label="Exit simulation">×</button>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prank Admin</title><link rel="stylesheet" href="admin.css"></head>
+<body>
+  <main class="wrap">
+    <section id="loginBox" class="card login">
+      <h1>Admin Login</h1><p>Sign in with your Supabase admin account.</p>
+      <input id="email" type="email" placeholder="Admin email" autocomplete="username">
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+      <button id="loginBtn">Login</button><p id="loginMsg" class="msg"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <header><div><h1>Prank Analytics</h1><p>Anonymous visitor activity only</p></div><button id="logoutBtn">Logout</button></header>
+      <div class="stats">
+        <article><span>Total Opens</span><strong id="total">0</strong></article>
+        <article><span>Unique Visitors</span><strong id="unique">0</strong></article>
+        <article><span>Reached Reveal</span><strong id="reveals">0</strong></article>
+        <article><span>Avg. Session</span><strong id="avg">0s</strong></article>
+      </div>
+      <div class="toolbar"><input id="search" placeholder="Search device/browser/date"><button id="refreshBtn">Refresh</button><button id="csvBtn">Export CSV</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Visitor</th><th>Opened</th><th>Device</th><th>Browser</th><th>Screen</th><th>Duration</th><th>Reveal</th><th>Message</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script>
+</body></html>
